@@ -1,4 +1,7 @@
 import "../scss/app.scss";
+const R = require('ramda');
+// import * as R from 'ramda';
+// import * as R from './node_modules/ramda/es/index.js';
 
 window.addEventListener("DOMContentLoaded", () => {
   // This block will be executed once the page is loaded and ready
@@ -9,4 +12,13 @@ window.addEventListener("DOMContentLoaded", () => {
     { job: "programmer", class: "is-danger" },
   ];
   const articles = document.querySelectorAll("article");
+  let pluckArrays = R.pluck("class", arrayToPluck);
+  
+  for(let i = 0; i < articles.length; i++)
+  {
+    articles[i].classList.add(pluckArrays[i]);
+  }
+
+  // pluckArrays(arrayToPluck);
+  // console.log();
 });
